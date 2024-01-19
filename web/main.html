@@ -1,0 +1,55 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Стрелка</title>
+        <script src="eel.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="main" class="main">
+            <h2>Стрелка</h2>
+            <input type="file" id="files" onchange=""/>
+            <button type = "button" id = "carloop" onclick = "read()">  
+                Начать расчёт
+            </button>
+            <button type = "button" id = "load_last_file" onclick = "load_last_file()">  
+                Открыть последний файл
+            </button>
+        </div>
+        <div id="footer" class="footer">
+        </div>
+        <script>
+            async function load_last_file(){
+                if(!document.getElementById('result')){}else{document.getElementById('result').remove();}
+                let text = event.target.result
+                let new_text = await eel.on_load_load_last()();
+                let newDiv = document.createElement("div");
+                newDiv.setAttribute("class", "result");
+                newDiv.setAttribute("id", "result");
+                let content = document.createTextNode(new_text);
+                newDiv.appendChild(content);
+                const curentDiv = document.getElementById("footer");
+                document.body.insertBefore(newDiv, curentDiv);
+                }
+            async function read(){
+                let file = document.getElementById("files");
+                const reader = new FileReader();
+                reader.onerror = error => reject(error);
+                reader.onload = async function(event) {
+                    let text = event.target.result
+                    let new_text = await eel.get_file(text)();
+                    if(!document.getElementById('result')){} else {document.getElementById('result').remove();}
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "result");
+                    newDiv.setAttribute("id", "result");
+                    let content = document.createTextNode(new_text);
+                    newDiv.appendChild(content);
+                    const curentDiv = document.getElementById("footer");
+                    document.body.insertBefore(newDiv, curentDiv);
+                    }
+                    reader.readAsText(file.files[0])
+            }
+        </script>
+    </body>
+</html>

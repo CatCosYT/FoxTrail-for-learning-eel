@@ -1,0 +1,58 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    color: rgb(25, 25, 25);
+    background: rgb(64, 64, 249);
+    box-shadow: 50 -250px 150px -170px rgb(79, 159, 230) inset;
+    animation: background 10s infinite alternate;
+    border-radius: 10px;
+}
+.main{
+    text-align: center;
+    align-items: center;
+}
+@keyframes background {
+    60% {
+    background: rgb(109, 102, 241);
+    box-shadow: 50 -250px 150px -150px rgb(211, 147, 223) inset;
+    }
+}
+
+.result{
+    white-space: pre;
+    animation: background_result 10s infinite alternate;
+    background: rgb(109, 102, 241);
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+@keyframes background_result {
+    60% {
+    background: rgb(64, 64, 249);
+    border-radius: 20px;
+    }
+}
+@keyframes background_files {
+    60% {
+    background: rgb(176, 176, 255);
+    border-radius: 20px;
+    }
+}
+#load_last_file{
+    border-radius: 10px;
+}
+#carloop{
+    border-radius: 10px;
+}
+#files{
+    border-radius: 10px;
+    animation: background_result 10s infinite alternate;
+    background: rgb(212, 210, 255);
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
